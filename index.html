@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouxel - Building the Mind for Machines</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter and Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- three.js for interactive background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* Apply the Inter font family to the body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Dark background */
+            color: #e5e7eb; /* Light gray text */
+        }
+
+        /* Apply the Orbitron font for the logo */
+        .font-logo {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Canvas for the three.js background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place it behind all content */
+        }
+
+        /* Simple animation for sections */
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Apply animation delays to sections */
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Interactive Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <header class="py-4 px-6 md:px-12 fixed top-0 left-0 right-0 bg-gray-950/70 backdrop-blur-sm z-10 border-b border-gray-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white font-logo">Nouxel</h1>
+            <nav>
+                <a href="mailto:contact@nouxel.ai" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-0">
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 md:pt-48 md:pb-32 text-center">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 fade-in-up">
+                        Building the Mind for Machines
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8 fade-in-up animation-delay-200">
+                        Our vision is to democratize the ability to build & deploy embodied intelligence.
+                    </p>
+                    <a href="#" class="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 inline-block fade-in-up animation-delay-400">
+                        Join Our Waitlist
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="py-20 md:py-24 bg-gray-950/50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Mission</h2>
+                    <p class="text-md md:text-lg text-gray-400 leading-relaxed">
+                        Our mission is to build the fabric of foundation models and infrastructure that simplifies the creation and deployment of real-world applications of General Purpose Autonomy. We are creating the fundamental building blocks to make this future a reality.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Concept Section -->
+        <section id="concept" class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">From Reasoning to Action</h2>
+                    <p class="text-md md:text-lg text-gray-400 mb-8 leading-relaxed">
+                        At the core of our technology is the <strong class="text-white">Nouxel</strong>, the fundamental unit of reasoning that precedes and guides the <strong class="text-white">Praxel</strong>—our defined unit for physical action and movement. These are the building blocks for robust, adaptable, and generalizable intelligence in any physical system.
+                    </p>
+                    
+                    <!-- Formula Display -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 text-lg md:text-xl font-semibold">
+                        <div class="bg-gray-800 border border-gray-700 rounded-lg px-6 py-3 shadow-lg text-gray-200">
+                            Perception
+                        </div>
+                        <div class="text-2xl font-light text-gray-500">→</div>
+                        <div class="bg-indigo-900/50 text-indigo-200 border border-indigo-700 rounded-lg px-6 py-3 shadow-lg">
+                            Nouxel (Reasoning)
+                        </div>
+                        <div class="text-2xl font-light text-gray-500">→</div>
+                        <div class="bg-teal-900/50 text-teal-200 border border-teal-700 rounded-lg px-6 py-3 shadow-lg">
+                            Praxel (Action)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950/50 border-t border-gray-800">
+        <div class="container mx-auto py-12 px-6 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                The era of embodied intelligence is here. <br class="hidden sm:block"> Let's build it together.
+            </h3>
+            <a href="mailto:contact@nouxel.ai" class="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors duration-300 text-lg">
+                contact@nouxel.ai
+            </a>
+            <p class="text-gray-500 text-sm mt-8">
+                &copy; 2025 Nouxel Inc. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- three.js Abstract Network Background ---
+
+        if (typeof THREE !== 'undefined') {
+            // Scene setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({
+                canvas: document.querySelector('#bg-canvas'),
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            camera.position.z = 50;
+
+            // --- Node and Line Creation ---
+            const nodeCount = 150;
+            const nodes = [];
+            const nodeGeometry = new THREE.SphereGeometry(0.3, 16, 16);
+            const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x3b82f6 }); // Blue color for nodes
+
+            for (let i = 0; i < nodeCount; i++) {
+                const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+                const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+                node.position.set(x, y, z);
+                
+                // Store random velocity for animation
+                node.userData.velocity = new THREE.Vector3(
+                    (Math.random() - 0.5) * 0.1,
+                    (Math.random() - 0.5) * 0.1,
+                    (Math.random() - 0.5) * 0.1
+                );
+                
+                nodes.push(node);
+                scene.add(node);
+            }
+
+            // Line setup
+            const lineMaterial = new THREE.LineBasicMaterial({ 
+                color: 0x4b5563, // Gray color for lines
+                transparent: true,
+                opacity: 0.2
+            });
+            const lineGeometry = new THREE.BufferGeometry();
+            const linePositions = new Float32Array(nodeCount * nodeCount * 3);
+            const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+            scene.add(lines);
+
+            // Mouse tracking
+            const mousePosition = new THREE.Vector2();
+            document.addEventListener('mousemove', (event) => {
+                mousePosition.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mousePosition.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            // Animation loop
+            const clock = new THREE.Clock();
+            const animate = () => {
+                const elapsedTime = clock.getElapsedTime();
+                let positionIndex = 0;
+
+                // Animate nodes and update line positions
+                for (let i = 0; i < nodeCount; i++) {
+                    const node = nodes[i];
+                    
+                    // Move nodes
+                    node.position.add(node.userData.velocity);
+
+                    // Check boundaries and reverse velocity
+                    if (Math.abs(node.position.x) > 50) node.userData.velocity.x *= -1;
+                    if (Math.abs(node.position.y) > 50) node.userData.velocity.y *= -1;
+                    if (Math.abs(node.position.z) > 50) node.userData.velocity.z *= -1;
+
+                    // Check distance to other nodes to draw lines
+                    for (let j = i + 1; j < nodeCount; j++) {
+                        const otherNode = nodes[j];
+                        const distance = node.position.distanceTo(otherNode.position);
+
+                        if (distance < 15) { // Threshold to draw a line
+                            linePositions[positionIndex++] = node.position.x;
+                            linePositions[positionIndex++] = node.position.y;
+                            linePositions[positionIndex++] = node.position.z;
+                            linePositions[positionIndex++] = otherNode.position.x;
+                            linePositions[positionIndex++] = otherNode.position.y;
+                            linePositions[positionIndex++] = otherNode.position.z;
+                        }
+                    }
+                }
+
+                // Update the line geometry
+                lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions.slice(0, positionIndex), 3));
+                lineGeometry.attributes.position.needsUpdate = true;
+
+                // Rotate the entire scene for a slow, mesmerizing effect
+                scene.rotation.y = elapsedTime * 0.05;
+                
+                // Parallax effect with mouse
+                camera.position.x += (mousePosition.x * 5 - camera.position.x) * 0.05;
+                camera.position.y += (mousePosition.y * 5 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+                window.requestAnimationFrame(animate);
+            };
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+            });
+
+            animate();
+        } else {
+            console.error("three.js library not loaded.");
+        }
+    </script>
+</body>
+</html>
